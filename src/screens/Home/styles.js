@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: myColors.background,
 	},
-	
+	noResult: {
+		alignSelf: 'center',
+		fontWeight: 'bold',
+		fontSize: calcFont(25),
+		marginVertical: h(50)
+	}
+
 
 });

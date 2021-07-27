@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
 	View,
-	FlatList
+	FlatList,
+	Text
 } from "react-native";
 import { styles } from "./styles";
 import { PNG } from "../../assets/PNG"
 import { MoveCard } from "../../components/MoveCard"
 import APIKit,{API_KEY,IMAGE_ENDPOINT} from "../../utils/APIKit";
 import moment from "moment";
+import { strings } from "../../i18n";
 
 const Home = ({ route, navigation }) => {
 	const [homeData, setHomeData] = useState([]);
@@ -43,6 +45,11 @@ const Home = ({ route, navigation }) => {
 					)
 				}}
 				showsVerticalScrollIndicator={false}
+				ListEmptyComponent={
+					<View style={{ flex: 1, height: 500 }}>
+						<Text style={styles.noResult}>{strings('noResult')}</Text>
+					</View>
+				}
 			/>
 		</View>
 	);
