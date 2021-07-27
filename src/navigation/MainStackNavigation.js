@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 // Screens
 import {
 	Splash,
-	Home
+	Home,
+	Details
 } from "../screens";
 import { myColors } from '../styles';
 import { strings } from '../i18n';
@@ -38,7 +39,17 @@ const MainStackNavigation = () => {
 						},
 					}}
 				/>
-				
+				<Stack.Screen
+					name="Details"
+					component={Details}
+					options={{
+						title: "",
+						headerShown: true,
+						headerStyle: {
+							height: Platform.OS == 'ios' ? 115 : 70,
+						},
+					}}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	)

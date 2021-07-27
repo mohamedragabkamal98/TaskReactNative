@@ -37,6 +37,7 @@ const Home = ({ route, navigation }) => {
 							date={moment(item.release_date).format('MMMM DD,YYYY')}
 							percentage={item.vote_average * 10}
 							geners={item.genre_ids}
+							onPress={() => navigation.navigate('Details', { data: item })}
 
 						/>
 					)
