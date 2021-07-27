@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 // Screens
 import {
 	Splash,
+	Home
 } from "../screens";
 import { myColors } from '../styles';
 import { strings } from '../i18n';
@@ -19,6 +20,22 @@ const MainStackNavigation = () => {
 					component={Splash}
 					options={{
 						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name="Home"
+					component={Home}
+					options={{
+						title: strings("Movies"),
+						headerShown: true,
+						headerStyle: {
+							height: Platform.OS == 'ios' ? 115 : 70,
+							backgroundColor:myColors.background
+						},
+						headerTitleStyle: {
+							fontSize:28,
+							fontWeight:'bold',
+						},
 					}}
 				/>
 				

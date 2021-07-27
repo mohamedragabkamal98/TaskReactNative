@@ -10,9 +10,9 @@ import { StackActions } from '@react-navigation/native';
 const Splash = ({ navigation, onSuccess }) => {
 
 	useEffect(() => {
-		// navigation.dispatch(
-		// 	StackActions.replace('Home')
-		//   );
+		navigation.dispatch(
+			StackActions.replace('Home')
+		  );
 		}, [])
 
 	
