@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import { strings } from "../../i18n";
-import APIKit,{API_KEY,IMAGE_ENDPOINT} from "../../utils/APIKit";
+import APIKit, { API_KEY, IMAGE_ENDPOINT } from "../../utils/APIKit";
 
 const Details = ({ route, navigation }) => {
 	const [data, setData] = useState(route.params.data);
@@ -18,6 +18,7 @@ const Details = ({ route, navigation }) => {
 	}, []);
 
 	const fetchMovieDetails = async () => {
+		//GET MOVIE DETAILS BY ID
 		const response = await APIKit.get(`/movie/${data.id}${API_KEY}`);
 		console.log(response);
 		if (response.status === 200) {
@@ -26,6 +27,7 @@ const Details = ({ route, navigation }) => {
 		}
 	};
 	const renderGeners = () => {
+		//SHOW MOVIE CATEGORY TYPE "GENRE"
 		return (
 			<>
 				{details.genres && <View style={styles.hashtages}>
@@ -35,6 +37,7 @@ const Details = ({ route, navigation }) => {
 		)
 	}
 	const renderCredites = () => {
+		//SHOW CREDITS OF THE MOVIE
 		return (
 			<>
 				{details.production_companies && <View style={styles.hashtages}>

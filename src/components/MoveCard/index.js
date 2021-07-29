@@ -19,7 +19,7 @@ type Props = {
 }
 
 const MoveCard = (props: Props) => {
-    const { image, title, geners = [], onPress = () => { }, percentage = 0, date } = props;
+    const { image, title, geners = [], onPress = () => { }, percentage = 0, date } = props; // PASSED PROPS OF THE CARD
     return (
         <TouchableOpacity style={styles.rowContainer} onPress={onPress}>
             <Image style={styles.image} source={image} />

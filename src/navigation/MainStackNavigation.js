@@ -12,7 +12,7 @@ import { myColors } from '../styles';
 import { strings } from '../i18n';
 
 const Stack = createStackNavigator()
-const MainStackNavigation = () => {
+const MainStackNavigation = () => { // MAIN STACK OF THE APP
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>

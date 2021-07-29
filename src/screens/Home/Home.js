@@ -7,7 +7,7 @@ import {
 import { styles } from "./styles";
 import { PNG } from "../../assets/PNG"
 import { MoveCard } from "../../components/MoveCard"
-import APIKit,{API_KEY,IMAGE_ENDPOINT} from "../../utils/APIKit";
+import APIKit, { API_KEY, IMAGE_ENDPOINT } from "../../utils/APIKit";
 import moment from "moment";
 import { strings } from "../../i18n";
 
@@ -19,6 +19,7 @@ const Home = ({ route, navigation }) => {
 	}, []);
 
 	const fetchHomeData = async () => {
+		//GET MOVIES LIST 
 		const response = await APIKit.get(`/list/1${API_KEY}`);
 		console.log(response);
 		if (response.status === 200) {
@@ -31,21 +32,21 @@ const Home = ({ route, navigation }) => {
 		<View style={styles.container}>
 			<FlatList
 				data={homeData}
-				renderItem={({item}) => {
+				renderItem={({ item }) => {
 					return (
 						<MoveCard
-							image={{ uri: `${IMAGE_ENDPOINT}${item.poster_path}` }}
-							title={item.title}
-							date={moment(item.release_date).format('MMMM DD,YYYY')}
-							percentage={item.vote_average * 10}
-							geners={item.genre_ids}
-							onPress={() => navigation.navigate('Details', { data: item })}
+							image={{ uri: `${IMAGE_ENDPOINT}${item.poster_path}` }} // MOVIE COVER IMAGE
+							title={item.title} // MOVIE NAME
+							date={moment(item.release_date).format('MMMM DD,YYYY')} // MOVIE RELEASED DATE
+							percentage={item.vote_average * 10} // VOTE AVERAGE FROM 100%
+							geners={item.genre_ids} // MOVIE CATEGORY TYPE "GENRE"
+							onPress={() => navigation.navigate('Details', { data: item })} // NAVIGATE TO MOVIE DETAILS
 
 						/>
 					)
 				}}
 				showsVerticalScrollIndicator={false}
-				ListEmptyComponent={
+				ListEmptyComponent={ // IF NO DATA 
 					<View style={{ flex: 1, height: 500 }}>
 						<Text style={styles.noResult}>{strings('noResult')}</Text>
 					</View>
